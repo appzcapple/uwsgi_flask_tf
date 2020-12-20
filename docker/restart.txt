@@ -1,0 +1,9 @@
+# to stop
+docker-compose -f docker-compose.nginx.yml down
+docker-compose down
+docker-compose -f docker-compose.serving.yml down
+
+# to start
+docker-compose -f docker-compose.serving.yml up -d
+docker-compose up -d
+docker-compose -f docker-compose.nginx.yml up -d

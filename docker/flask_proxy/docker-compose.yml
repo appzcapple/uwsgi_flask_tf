@@ -1,0 +1,24 @@
+version: "3.3"
+
+services:
+  service_prediction:
+    image: image_prediction:20200130
+    container_name: service_prediction
+    user: ${CURRENT_UID}
+    volumes:
+      - "../../service/flask:/app/code/flask"
+      - "../../service/predict:/app/code/predict"
+      - "../../service/utils:/app/code/utils"
+      - "../../data/uploads:/app/data/uploads"
+      - "~/resources/saved_models:/root/resources/saved_models"
+      - "../../logs/uwsgi:/var/log/uwsgi"
+    ports:
+      - "9002:9002"
+    networks:
+      - image_labelling
+    command: /bin/bash -c "
+      bash /app/code/flask/develop_startup.sh
+      "
+networks:
+  image_labelling:
+    external: true

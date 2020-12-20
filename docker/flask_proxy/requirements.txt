@@ -1,0 +1,13 @@
+setuptools>=41.0.0
+scipy==1.4.1
+pillow
+opencv-python
+numpy
+flask
+flask_api
+uwsgi
+matplotlib
+keras == 2.2.4
+tensorflow == 2.2.0
+requests_toolbelt
+python-magic
